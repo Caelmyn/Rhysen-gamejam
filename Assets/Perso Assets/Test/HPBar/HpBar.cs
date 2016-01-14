@@ -4,7 +4,7 @@ using System.Collections;
 
 public class HpBar : MonoBehaviour
 {
-    public int PercentLeft
+    public float PercentLeft
     {
         get { return _percentLeft; }
         set
@@ -14,13 +14,17 @@ public class HpBar : MonoBehaviour
                 _percentLeft = 100;
             if (_percentLeft < 0)
                 _percentLeft = 0;
+            Debug.Log(_percentLeft);
+            this.transform.localScale = new Vector3(_percentLeft / 100, 1, 1);
+            _texture.transform.localScale = new Vector3(1 / this.transform.localScale.x, 1, 1);
         }
     }
 
     [SerializeField] private RectTransform _texture;
-    private int _percentLeft;
+    private float _percentLeft;
 
     void Start()
     {
+        PercentLeft = 100;
     }
 }

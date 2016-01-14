@@ -334,8 +334,9 @@ GameObject:
   - 222: {fileID: 1546860586}
   - 114: {fileID: 1546860585}
   - 114: {fileID: 1546860584}
+  - 114: {fileID: 1546860587}
   m_Layer: 5
-  m_Name: HpBarMask
+  m_Name: HpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,6 +404,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1546860582}
+--- !u!114 &1546860587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1546860582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f537c55eed3d934c98c81defad6a1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _texture: {fileID: 1591199196}
 --- !u!1 &1591199195
 GameObject:
   m_ObjectHideFlags: 0

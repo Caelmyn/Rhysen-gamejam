@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Perso Assets/Test/HPBar/HBBarTest.unity
-  isLoaded: 1
-  isActive: 1

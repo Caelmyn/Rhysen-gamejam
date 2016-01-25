@@ -7,19 +7,13 @@ public class Player : MonoBehaviour {
     public Color minDanger;
     public Color maxDanger;
     public AnimationCurve lerpSpeed;
-    public Health_bar hpBar;
-    public int maxHP = 10;
+    public HpBar hpBar;
+    public int maxHP = 100;
     public int hp;
-
-	// Use this for initialization
+    
 	void Start () {
         hp = maxHP;
         UpdateSpotLight();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
     void OnTriggerEnter(Collider other) {
@@ -43,7 +37,7 @@ public class Player : MonoBehaviour {
             Instantiate(endGameManager, Vector3.zero, Quaternion.identity);
             Destroy(gameObject);
         }
-        hpBar.SetPercentage(hp);
+        hpBar.PercentLeft = hp;
         UpdateSpotLight();
     }
 
@@ -56,7 +50,7 @@ public class Player : MonoBehaviour {
             Instantiate(endGameManager, Vector3.zero, Quaternion.identity);
             Destroy(gameObject);
         }
-        hpBar.SetPercentage(hp);
+        hpBar.PercentLeft = hp;
         UpdateSpotLight();
     }
 }

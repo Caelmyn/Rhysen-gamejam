@@ -19,7 +19,6 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == 10 || other.gameObject.layer == 9) {
             Destroy(other.gameObject);
-            AddHP(2);
         }
     }
 

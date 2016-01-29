@@ -14,7 +14,6 @@ public class HpBar : MonoBehaviour
                 _percentLeft = 100;
             if (_percentLeft < 0)
                 _percentLeft = 0;
-            Debug.Log(_percentLeft);
             this.transform.localScale = new Vector3(_percentLeft / 100, 1, 1);
             _image.uvRect = new Rect(0, 0, this.transform.localScale.x, 1);
         }

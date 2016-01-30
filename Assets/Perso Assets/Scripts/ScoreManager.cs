@@ -78,25 +78,25 @@ public class ScoreManager : MonoBehaviour {
                 counters.AddScore(values.great);
                 counters.great++;
                 Instantiate(greatGUI, screenPos, Quaternion.identity);
-                player.AddHP(1);
+                player.AddHP(10);
                 break;
             case HitType.GOOD:
                 counters.AddScore(values.good);
                 counters.good++;
                 Instantiate(goodGUI, screenPos, Quaternion.identity);
-                player.AddHP(1);
+                player.AddHP(10);
                 break;
             case HitType.OK:
                 counters.AddScore(values.ok);
                 counters.ok++;
                 Instantiate(okGUI, screenPos, Quaternion.identity);
-                player.AddHP(1);
+                player.AddHP(10);
                 break;
             default:
                 counters.currentCombo = 0;
                 counters.miss++;
                 Instantiate(missGUI, screenPos, Quaternion.identity);
-                player.RemoveHP(1);
+                player.RemoveHP(10);
                 break;
         }
         counters.total++;

@@ -18,7 +18,6 @@ public class Barbed_wire : MonoBehaviour {
     {
         if (other.gameObject.layer == 9)
         {
-            ((Player)transform.parent.GetComponent("Player")).RemoveHP(2);
             other.gameObject.layer = 10;
             scoreManager.AddScore(HitType.MISS, other.gameObject.transform.position);
         }

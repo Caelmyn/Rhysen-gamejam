@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public enum HitType
 {
@@ -49,10 +50,10 @@ public class ScoreValues
 }
 
 public class ScoreManager : MonoBehaviour {
-    public GUIText score_display;
-    public GUIText precision_display;
-    public GUIText combo_display;
-    public GUIText maxCombo_display;
+    public Text score_display;
+    public Text precision_display;
+    public Text combo_display;
+    public Text maxCombo_display;
     public Player player;
     public ScoreValues values;
     public ScoreCounters counters = new ScoreCounters();

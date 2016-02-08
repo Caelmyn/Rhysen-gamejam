@@ -1,53 +1,38 @@
-// Author: Christopher G Steel
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <christopher.g.steel@gmail.com> wrote this file.  As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return. Christopher George Steel
+ * ----------------------------------------------------------------------------
+ */
 
-using System.IO;
+using System;
 using System.Collections.Generic;
 
 public class BeatmapParser {
 	public delegate void LineHandler(string line);
 
-	string _path;
-	string _buffer;
+	ILineProvider _lp;
 
-	public BeatmapParser(string path) {
-		_path = path;
-	}
-
-	public void Load() {
-		var sr = new StringReader(_path);
-
-		_buffer = sr.ReadToEnd();
+	public BeatmapParser(ILineProvider lp) {
+		_lp = lp;
 	}
 
 	public void Parse() {
-		if (_buffer == null) {
-			Load();
-		}
 		var sections = new Dictionary<string, LineHandler> {
 			{"[General]", _ParseGeneral},
 			{"[Difficulty]", _ParseDifficulty},
 			{"[HitObjects]", _ParseHitObjects}
-		}
-		LineHandler currentSectionHandler;
+		};
+		LineHandler currentSectionHandler = null;
 
-		foreach (string line in _SplitBufferIntoLines()) {
+		foreach (string line in _lp.getLine()) {
 			if (_IsSectionTitle(line)) {
+				Console.WriteLine("changing section title");
 				currentSectionHandler = sections[line];
 			} else {
 				currentSectionHandler(line);
-			}
-		}
-	}
-
-	private IEnumerable<string> _SplitBufferIntoLines() {
-		if (_buffer == null) {
-			yield break;
-		}
-		using (var reader = new System.IO.StringReader(_buffer)) {
-			string line;
-
-			while ((line = reader.ReadLine()) != null) {
-				yield return line;
 			}
 		}
 	}
